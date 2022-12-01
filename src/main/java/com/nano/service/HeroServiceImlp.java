@@ -26,26 +26,21 @@ public class HeroServiceImlp    implements heroService {
 		heroRepository.findAll().forEach(heros::add);
 		 String respence = "non"         ;
 		 String respenceQ2 = "non"         ;
+		 boolean n = false;
+		 boolean stop = false;
 /// respence.equals("non") ||
-
-		for(Hero hero : heros) {
-			
-			if ( respenceQ2.equals("non") ) {
-
+		for(Hero hero : heros) {			
+			if ( respenceQ2.equals("non")  && stop  != true ||   n != true ) {
 		//	System.out.println(heros.size() );
 	        Scanner in = new Scanner(System.in);
-
 		//	 String respence = "non"         ;
-			//	for(Hero heroo : heros) {
-			
+			//	for(Hero heroo : heros) {		
 			System.out.println(Q1 + hero.characteristic + "?");
 	      //  Scanner in = new Scanner(System.in);
 	        System.out.println("Awnser : ");
 	         respence = in.next();
 			//	}
 		//	}
-
-	        
 	    	if(hero.idHero == heros.size()  &&   respence.equals("non") ) {
 	    		 Hero heroo = new Hero();
 					System.out.println(" A quel heros pensiez-vous ? ");
@@ -57,7 +52,11 @@ public class HeroServiceImlp    implements heroService {
 			        String  caracHeroo = in.next();
 			        heroo.characteristic = caracHeroo;
 			        heroRepository.save(heroo);
-			        System.out.println(" Le hero " + nameHeroo  + " a ete ajoute a la base avec la caracteristique " + caracHeroo + "!" ); }
+			        System.out.println(" Le hero " + nameHeroo  + " a ete ajoute a la base avec la caracteristique " + caracHeroo + "!" ); 
+			        n = true;  
+			        System.out.println( heros.size() );
+
+	    	}
 	   
 	       if(respence.equals("oui")){
 				System.out.println(Q2 + hero.name + " ?");
@@ -78,7 +77,16 @@ public class HeroServiceImlp    implements heroService {
 				        heroo.characteristic = caracHeroo;
 				        heroRepository.save(heroo);
 				        System.out.println(" Le hero " + nameHeroo  + " a ete ajoute a la base avec la caracteristique " + caracHeroo + "!" );
-				        }   }
+				        n = true ;  
+				        System.out.println( heros.size() ); }  
+		    
+		    if( n = true ) {
+		    	   stop = true ;
+		       }
+		    
+	       }
+	       
+	     
 
 
 	       // herre
